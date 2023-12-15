@@ -8,14 +8,13 @@ export default function App() {
   const [currentTheme, setCurrentTheme] = useState(themes[0]);
 
   const { getThemeClasses } = useTheme();
-
   const themeClasses = getThemeClasses(currentTheme);
 
   return (
     <div
-      className={`bg-theme1MainBackground h-[100vh] flex flex-col items-center justify-center ${themeClasses.mainBackground}`}
+      className={`bg-theme1MainBackground h-[100vh] flex flex-col items-center lg:justify-center ${themeClasses.mainBackground}`}
     >
-      <Calculator switchTheme={getThemeClasses} />
+      <Calculator theme={themeClasses} />
 
       <div>
         {themes.map((theme, i) => (
