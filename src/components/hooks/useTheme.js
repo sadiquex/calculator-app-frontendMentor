@@ -2,7 +2,6 @@ const useTheme = () => {
   const getThemeClasses = (theme) => {
     switch (theme) {
       case "theme1":
-        console.log("useing theme");
         return {
           mainBackground: "bg-theme1MainBackground",
           toggleBackground: "bg-theme1ToggleBackground",
