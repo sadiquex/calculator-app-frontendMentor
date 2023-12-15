@@ -1,10 +1,10 @@
 import Calculator from "./components/Calculator";
 import { useState } from "react";
 import useTheme from "./components/hooks/useTheme";
-
-const themes = ["theme1", "theme2", "theme3"];
+import ThemeSwitcher from "./components/ThemeSwitcher";
 
 export default function App() {
+  const themes = ["theme1", "theme2", "theme3"];
   const [currentTheme, setCurrentTheme] = useState(themes[0]);
 
   const { getThemeClasses } = useTheme();
@@ -12,15 +12,15 @@ export default function App() {
 
   return (
     <div
-      className={`bg-theme1MainBackground h-[100vh] flex flex-col items-center lg:justify-center ${themeClasses.mainBackground}`}
+      className={`h-[100vh] flex flex-col items-center md:justify-center ${themeClasses.mainBackground}`}
     >
-      <Calculator theme={themeClasses} />
-
       <div>
         {themes.map((theme, i) => (
           <button
             key={i}
-            className="bg-green-300 m-4"
+            className={`m-4 ${
+              currentTheme === theme ? "bg-green-300" : "bg-yellow-300"
+            }`}
             onClick={() => {
               setCurrentTheme(themes[i]);
             }}
@@ -29,6 +29,7 @@ export default function App() {
           </button>
         ))}
       </div>
+      <Calculator theme={themeClasses} />
     </div>
   );
 }
