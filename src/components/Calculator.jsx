@@ -51,7 +51,7 @@ const Calculator = ({ theme }) => {
         <div className="w-[100%] flex gap-2">
           <input
             type="button"
-            value="reset"
+            value="RESET"
             className={`${theme.delete_ResetKeyBackground} flex-1 py-2 px-4 rounded-md text-[24px]`}
             onClick={() =>
               dispatch({
